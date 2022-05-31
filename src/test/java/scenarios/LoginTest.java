@@ -3,7 +3,6 @@ package scenarios;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import pages.LoginPage;
 import utils.User;
 
 public class LoginTest extends AbstractTest {
@@ -15,9 +14,7 @@ public class LoginTest extends AbstractTest {
             .build();
 
     @Test
-    public void login()
-    {
-        LoginPage loginPage = new LoginPage(driver);
-        Assertions.assertTrue(loginPage.login(user).isUserNameCorrect(user), "Имя не совпадает с ожидаемым.");
+    public void login() {
+        Assertions.assertTrue(loginPage.login(user).isUserNameCorrect(user), "Имя user не совпадает с ожидаемым.");
     }
 }
