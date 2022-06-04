@@ -4,12 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.User;
 
-public class LoginPage extends AbstractPage {
+public class LoginPage implements LoadableComponent {
     private final WebDriver driver;
 
-    private final By byEmailId     = By.id("field_email");
-    private final By byPasswordId  = By.id( "field_password");
-    private final By byButtonXpath = By.xpath("//*[@class='login-form-actions']/input");
+    private final By byEmail    = By.id("field_email");
+    private final By byPassword = By.id( "field_password");
+    private final By byButton   = By.xpath("//*[@class='login-form-actions']/input");
 
 
     public LoginPage(WebDriver driver) {
@@ -17,19 +17,15 @@ public class LoginPage extends AbstractPage {
     }
 
     public MainPage login(User user){
-        isLoaded();
+        isComponentLoaded(driver, byEmail, DEFAULT_TIMEOUT);
+        isComponentLoaded(driver, byPassword, DEFAULT_TIMEOUT);
+        isComponentLoaded(driver, byButton, DEFAULT_TIMEOUT);
 
-        driver.findElement(byEmailId).sendKeys(user.getLogin());
-        driver.findElement(byPasswordId).sendKeys(user.getPassword());
-        driver.findElement(byButtonXpath).click();
+        driver.findElement(byEmail).sendKeys(user.getLogin());
+        driver.findElement(byPassword).sendKeys(user.getPassword());
+        driver.findElement(byButton).click();
 
         return new MainPage(driver);
     }
 
-    @Override
-    public void isLoaded() {
-        isComponentLoaded(driver, byEmailId, DEFAULT_TIMEOUT);
-        isComponentLoaded(driver, byPasswordId, DEFAULT_TIMEOUT);
-        isComponentLoaded(driver, byButtonXpath, DEFAULT_TIMEOUT);
-    }
 }

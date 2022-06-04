@@ -7,7 +7,7 @@ import utils.User;
 
 public class LoginTest extends AbstractTest {
 
-    private User user = new User.UserBuilder()
+    private final User user = new User.UserBuilder()
             .withLogin("79681897921")
             .withPassword("test2022")
             .withFullName("Тест Тестов")
