@@ -23,7 +23,7 @@ public class NoteTest extends AbstractTest{
 
     @Test
     public void makeNote() {
-        final String text = "Hi there[" + new Random().nextInt() + "]";
+        final String text = "“[|]’~<!--@ /*$%^&#*/ ()?>,.*/\\[" + new Random().nextInt() + "]";
         final int LAST_MES_NUM = 1;
 
         mainPage.openNewNoteLayer().sendTextToNewNote(text).clickPostButton();

@@ -23,7 +23,7 @@ public class MessageTest extends AbstractTest{
 
     @Test
     public void sendTextMessage(){
-        final String textMessage = "hello[" + new Random().nextInt() + "]";
+        final String textMessage = "“[|]’~<!--@ /*$%^&#*/ ()?>,.*/\\[" + new Random().nextInt() + "]";
         final String chatTitle = "Пустой чат";
         final int mesNumber = 1;
 

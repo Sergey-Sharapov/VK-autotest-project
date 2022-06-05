@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 public class MessageLayer implements VisibleComponent{
     private final WebDriver driver;
     private final WebElement layer;
+
     private final By messageLayerLoc = By.id("msg_layer_wrapper");
     private final By messageInputFieldLoc = By.xpath("//div[@class='messenger_main']/descendant::msg-input");
     private final By sendButtonLoc = By.xpath("//div[@class='messenger_main']/descendant::msg-button[@data-l='t,sendButton']");
