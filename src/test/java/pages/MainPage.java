@@ -46,11 +46,11 @@ public class MainPage implements LoadableComponent {
     }
 
     public String textOfPostNumber(int number){
-        isComponentLoaded(driver, byPostXpath(number));
-        return driver.findElement(byPostXpath(number)).getText();
+        isComponentLoaded(driver, postLoc(number));
+        return driver.findElement(postLoc(number)).getText();
     }
 
-    private By byPostXpath(int number){
+    private By postLoc(int number){
         return By.xpath("//div[@class='feed-list __compact']/div["+ number +"]/descendant::div[@class='media-text_cnt']/div");
     }
 
