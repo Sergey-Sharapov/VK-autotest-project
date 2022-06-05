@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.User;
 
+import java.util.Random;
+
 public class NoteTest extends AbstractTest{
     private final User user = new User.UserBuilder()
             .withLogin("79681897921")
@@ -21,8 +23,10 @@ public class NoteTest extends AbstractTest{
 
     @Test
     public void makeNote() {
-        String text = "Hi there";
-        mainPage.openPostingField().sendTextToNewPost(text).clickPostButton();
-        Assertions.assertEquals(text, mainPage.textOfPostNumber(1));
+        final String text = "Hi there[" + new Random().nextInt() + "]";
+        final int LAST_MES_NUM = 1;
+
+        mainPage.openNewNoteLayer().sendTextToNewNote(text).clickPostButton();
+        Assertions.assertEquals(text, mainPage.textOfNoteNumber(LAST_MES_NUM));
     }
 }
